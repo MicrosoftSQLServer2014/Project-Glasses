@@ -4,7 +4,7 @@ using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace DAL.Identity
 {
-    class ApplicationRoleManager: RoleManager<ApplicationRole>
+    public class ApplicationRoleManager: RoleManager<ApplicationRole>
     {
         public ApplicationRoleManager(RoleStore<ApplicationRole> store) : base(store)
         {

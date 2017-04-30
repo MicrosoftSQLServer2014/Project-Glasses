@@ -6,5 +6,11 @@ namespace DAL.Entities
     {
         public virtual ClientProfile ClientProfile { get; set; }
 
+        public static bool IsNull(ApplicationUser applicationUser)
+        {
+            if (Equals(applicationUser,null))
+                return true;
+            return false;
+        }
     }
 }

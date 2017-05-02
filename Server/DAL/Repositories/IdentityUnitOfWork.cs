@@ -8,7 +8,7 @@ using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace DAL.Repositories
 {
-    class IdentityUnitOfWork : IUnitOfWork
+    public class IdentityUnitOfWork : IUnitOfWork
     {
         private ApplicationContext Database { get; }
         private bool Disposed { get; set; }

@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics.Eventing.Reader;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using Microsoft.AspNet.Identity;
 
 namespace BLL.Infrastructure
 {
-    class OperationDetails
+    public class OperationDetails
     {
         public OperationDetails(bool succedeed, string message, string prop)
         {
@@ -16,9 +11,9 @@ namespace BLL.Infrastructure
             Message = message;
             Property = prop;
         }
-        public bool Succedeed { get; private set; }
-        public string Message { get; private set; }
-        public string Property { get; private set; }
+        public bool Succedeed { get; }
+        public string Message { get; }
+        public string Property { get; }
 
         public static OperationDetails IsAnyError(IdentityResult identityResult)
         {

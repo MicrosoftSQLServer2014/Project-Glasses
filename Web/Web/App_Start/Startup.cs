@@ -1,19 +1,24 @@
-﻿using Microsoft.AspNet.Identity;
+﻿using System.Web.Configuration;
+using Microsoft.AspNet.Identity;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
 using Owin;
+using System.Web;
+using System.Web.Http;
+using Microsoft.Owin.Security.OAuth;
+using Web;
 
+[assembly: OwinStartup(typeof(Startup))]
 namespace Web
 {
     public class Startup
     {
+        public  static OAuthBearerAuthenticationOptions OAuthBearerOptions { get; private set; }
+
         public void Configuration(IAppBuilder app)
         {
-            app.UseCookieAuthentication(new CookieAuthenticationOptions
-            {
-                AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie,
-                LoginPath = new PathString("/Account/Login"),
-            });
+            OAuthBearerOptions = new OAuthBearerAuthenticationOptions();
+            app.UseOAuthBearerAuthentication(OAuthBearerOptions);
         }
     }
 }

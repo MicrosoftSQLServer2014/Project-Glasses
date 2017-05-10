@@ -11,3 +11,4 @@ C:\Users\Lenovo\Desktop\Project Glasses\Project-Glasses\Server\DAL\bin\Debug\Mic
 C:\Users\Lenovo\Desktop\Project Glasses\Project-Glasses\Server\DAL\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
 C:\Users\Lenovo\Desktop\Project Glasses\Project-Glasses\Server\DAL\obj\Debug\DAL.dll
 C:\Users\Lenovo\Desktop\Project Glasses\Project-Glasses\Server\DAL\obj\Debug\DAL.pdb
+C:\Users\Lenovo\Desktop\Project Glasses\Project-Glasses\Server\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache

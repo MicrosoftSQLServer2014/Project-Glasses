@@ -2,6 +2,63 @@
 @{
     ViewBag.Title = "Login";
 }
-
 <h2>Login</h2>
+<form method="get">
 
+    <div class="row registration-input">
+
+        <div class="col-sm-2">
+            <label for="form_fusername">Username:</label>
+        </div>
+
+        <div class="col-sm-4">
+            <input type="text" id="form_fusername" name="username" />
+        </div>
+
+    </div>
+
+    <div class="row registration-input">
+
+        <div class="col-sm-2">
+            <label for="form_fpassword">Password:</label>
+        </div>
+
+        <div class="col-sm-4">
+            <input type="password" id="form_fpassword" name="password" />
+        </div>
+
+    </div>
+
+    <div class="row registration-input">
+        <div class="col-sm-2">
+            <button id="submit_button" type="button"
+                    class="btn btn-success" onclick="Login()">
+                Submit
+            </button>
+        </div>
+    </div>
+
+</form>
+
+<p id="Test"></p>
+
+<script>
+    function Login() {
+        var username = $("#form_fusername").val();
+        var password = $("#form_fpassword").val();
+        var data = 'username=' + username + '&' + 'password=' + password + '&' + "grant_type=password";
+        $.ajax({
+            url: 'http://localhost:12401/Account/Token',
+            contentType: 'x-www-form-urlencoded',
+            data: data,
+            type: 'POST',
+            success: function (response) {
+                var obj = JSON.parse(response);
+                localStorage.setItem("access_token", obj.access_token);
+                localStorage.setItem("userName", obj.userName);
+                localStorage.setItem("token_type", obj.token_type);
+                window.location = "http://localhost:12401/Home/Index";
+            }
+        });
+    }
+</script>

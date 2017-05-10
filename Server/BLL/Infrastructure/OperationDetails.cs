@@ -23,7 +23,7 @@ namespace BLL.Infrastructure
                 operationDetails = new OperationDetails(false, identityResult.Errors.FirstOrDefault(), "");
                 return operationDetails;
             }
-            operationDetails = new OperationDetails(true, "", "");
+            operationDetails = new OperationDetails(true, "Correct", "");
             return operationDetails;
         }
     }

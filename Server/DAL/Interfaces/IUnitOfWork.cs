@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using DAL.Identity;
+using DAL.Interfaces.EntityInterfaces;
 
 namespace DAL.Interfaces
 {
@@ -10,6 +11,9 @@ namespace DAL.Interfaces
         ApplicationRoleManager RoleManager { get; }
 
         IClientManager ClientManager { get; }
+        IGlassesManager GlassesManager { get; }
+        IModeManager ModeManager { get; }
+        IStatisticManager StatisticManager { get; }
 
         /// <summary>
         /// Save database async

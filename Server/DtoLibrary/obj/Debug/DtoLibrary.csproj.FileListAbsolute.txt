@@ -1,0 +1,5 @@
+C:\Users\Lenovo\Desktop\Project Glasses\Project-Glasses\Server\DtoLibrary\bin\Debug\DtoLibrary.dll
+C:\Users\Lenovo\Desktop\Project Glasses\Project-Glasses\Server\DtoLibrary\bin\Debug\DtoLibrary.pdb
+C:\Users\Lenovo\Desktop\Project Glasses\Project-Glasses\Server\DtoLibrary\bin\Debug\System.ComponentModel.Annotations.dll
+C:\Users\Lenovo\Desktop\Project Glasses\Project-Glasses\Server\DtoLibrary\obj\Debug\DtoLibrary.dll
+C:\Users\Lenovo\Desktop\Project Glasses\Project-Glasses\Server\DtoLibrary\obj\Debug\DtoLibrary.pdb

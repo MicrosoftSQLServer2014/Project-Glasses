@@ -1,46 +1,41 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Claims;
-using System.Threading.Tasks;
-using System.Web;
-using System.Web.Mvc;
-using System.Web.UI.WebControls;
-using Microsoft.AspNet.Identity.Owin;
-using Microsoft.Owin.Security;
+﻿using System.Web.Mvc;
+using Newtonsoft.Json.Linq;
+using Web.Util;
+using DtoLibrary;
+
 
 namespace Web.Controllers
 {
     public class AccountController : Controller
     {
-        private IAuthenticationManager AuthenticationManager => HttpContext.GetOwinContext().Authentication;
+        const bool api = true;
+        private const bool notApi = false;
 
+        [HttpPost]
+        public JObject Token()
+        {           
+            var obj = Resender.ReadResponse<JObject>(notApi);
+            return obj;
+        }
+
+        [HttpGet]
+        public ActionResult Register()
+        {
+            UserDto model = new UserDto();
+            return View(model);
+        }
+
+        [HttpPost]
+        public string Register(UserDto userDto)
+        {
+            var obj = Resender.ReadResponse<string>(api);
+            return obj;
+        }
+
+        [HttpGet]
         public ActionResult Login()
         {
             return View();
-        }
-
-        [HttpPost]
-        public async Task<ActionResult> Login(LoginModel model)
-        {
-            return View(model);
-        }
-
-        public ActionResult Logout()
-        {
-            AuthenticationManager.SignOut();
-            return RedirectToAction("Index", "Home");
-        }
-
-        public ActionResult Register()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        public async Task<ActionResult> Register(RegisterModel model)
-        {
-            return View(model);
         }
     }
 }

@@ -6,5 +6,7 @@ namespace DAL.Interfaces
     public interface IClientManager: IDisposable
     {
         void Create(ClientProfile item);
+
+        ClientProfile GetClientByUserName(string userName);
     }
 }

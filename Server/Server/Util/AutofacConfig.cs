@@ -22,6 +22,9 @@ namespace Server.Util
             #region InjectedTypes
 
             builder.RegisterType<UserService>().As<IUserService>();
+            builder.RegisterType<GlassesService>().As<IGlassesService>();
+            builder.RegisterType<StatisticService>().As<IStatisticService>();
+            builder.RegisterType<ModeService>().As<IModeService>();
 
             #endregion
 

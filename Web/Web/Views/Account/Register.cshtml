@@ -1,0 +1,124 @@
+﻿@using DtoLibrary;
+@model UserDto
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h1>Registration</h1>
+<form method="get">
+
+    <div class="row registration-input">
+
+        <div class="col-sm-2">
+            <label for="form_femail">Email:</label>
+        </div>
+
+        <div class="col-sm-4">
+            <input type="email" id="form_femail" name="email" />
+        </div>
+
+    </div>
+
+    <div class="row registration-input">
+
+        <div class="col-sm-2">
+            <label for="form_flogin">Username:</label>
+        </div>
+
+        <div class="col-sm-4">
+            <input type="text" id="form_flogin" name="username" />
+        </div>
+
+    </div>
+
+    <div class="row registration-input">
+
+        <div class="col-sm-2">
+            <label for="form_fname">Name:</label>
+        </div>
+
+        <div class="col-sm-4">
+            <input type="text" id="form_fname" name="name" />
+        </div>
+    </div>
+
+    <div class="row registration-input">
+
+        <div class="col-sm-2">
+            <label for="form_fage">Age:</label>
+        </div>
+
+        <div class="col-sm-4">
+            <input type="number" id="form_fage" name="age" />
+        </div>
+
+    </div>
+
+    <div class="row registration-input">
+
+        <div class="col-sm-2">
+            <label for="form_fpassword">Password:</label>
+        </div>
+
+        <div class="col-sm-4">
+            <input type="password" id="form_fpassword" name="password" />
+        </div>
+
+    </div>
+
+    <div class="row registration-input">
+
+        <div class="col-sm-2">
+            <label for="form_fcpassword">Confirm password:</label>
+        </div>
+
+        <div class="col-sm-4">
+            <input type="password" id="form_fcpassword" name="confirmpassword" />
+        </div>
+
+        <div class="col-sm-4" id="warning" hidden="hidden">
+            <p class="warning" id="warning_text">Warning</p>
+        </div>
+
+    </div>
+
+    <div class="row registration-input">
+        <div class="col-sm-2">
+            <button id="submit_button" type="button"
+                    class="btn btn-success" onclick="SubmitRegister()">
+                Submit
+            </button>
+        </div>
+    </div>
+
+</form>
+
+<script>
+    function SubmitRegister() {
+        var password = $('#form_fpassword').val();
+        var cpassword = $('#form_fcpassword').val();
+        if (password === cpassword) {
+            var data = $('form').serialize();
+            $.ajax({
+                url: '/Account/Register',
+                type: 'post',
+                data: data,
+                success: function (response) {
+                    if (response === "Correct") {
+                        window.location = "http://localhost:12401/Home/Index";
+                    }
+                    else {
+                        $('#warning_text').html(response);
+                        $('#warning').show();
+                    }
+                },
+                error: function () {
+                    $('#warning_text').html('error');
+                    $('#warning').show();
+                }
+            });
+        } else {
+            $('#warning_text').text("Password doesn't match confirm password");
+            $('#warning').show();
+        }
+    }
+</script>

@@ -1,10 +1,12 @@
-﻿namespace DAL.Interfaces
+﻿using System.Collections.Generic;
+
+namespace DAL.Interfaces
 {
     public interface ICrud<T>
     {
-        void Create(T item);
-        T Read();
-        void Update();
-        void Delete();
+        void Insert(T item);
+        T ReadItem(string id);
+        ICollection<T> GetElementsByClient(string userName);
+        void Delete(string id);
     }
 }
